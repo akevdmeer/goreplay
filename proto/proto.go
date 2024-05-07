@@ -183,7 +183,7 @@ func AddHeader(payload, name, value []byte) []byte {
 // DeleteHeader takes http payload and removes header name from headers section
 // Returns modified request payload
 func DeleteHeader(payload, name []byte) []byte {
-	_, hs, he, _, ve := header(payload, name)
+	_, hs, _, _, ve := header(payload, name)
 	if hs != -1 {
 		return byteutils.Cut(payload, hs, ve+1)
 	}
